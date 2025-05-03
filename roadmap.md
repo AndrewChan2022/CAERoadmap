@@ -437,3 +437,74 @@ If you're aiming for a **modern CAE pipeline**, I'd recommend:
 * Visualize with **ParaView**
 
 Would you like me to recommend a project path that includes one of these (e.g., `deal.II + Gmsh + ParaView`) and replaces or complements OOFEM?
+
+
+# compare of project
+
+## Comparison for Commercial Use CAE
+
+| **Project**      | **Meshing Features**      | **Solving Features**      | **Commercial Adoption** | **License** | **Size (Lines)** | **C++** |
+|:------------------|:--------------------------|:--------------------------|:------------------------|:------------|:-----------------|:--------|
+| **Gmsh + Code_Aster** | Advanced (tets, hexes) | Multiphysics, nonlinear | High (industry)        | GPL         | ~2.5M total      | Partial |
+| **Elmer**         | Basic + imports          | Multiphysics, nonlinear | Moderate (research)    | LGPL        | ~500k           | Yes     |
+| **FreeFEM**       | Adaptive, internal       | Custom PDEs, flexible   | Low (research)         | GPL         | ~200k           | Yes     |
+| **CalculiX**      | Basic + imports          | Structural, nonlinear   | Moderate (small firms) | GPL         | ~150k           | No (C)  |
+| **OOFEM**         | Import-focused           | Structural, extensible  | Low (research)         | GPL         | ~100k           | Yes     |
+
+
+notes:  Salome-Meca:  (Code_Aster + Salome)
+
+
+CAE mesh
+
+| **Project** | **C++** | **Lightweight (Lines)** | **Learning Ease** | **Dependencies** | **CAE Focus**       | **Fit with `next_gsp`** |
+|:------------|:--------|:------------------------|:------------------|:-----------------|:--------------------|:------------------------|
+| **Gmsh**    | Yes     | Moderate (~500k)       | Moderate (broad)  | Open CASCADE     | Full CAE meshing    | High (feature-rich)    |
+| **Netgen**  | Yes     | Yes (~200k)           | Good (tets)       | Open CASCADE     | Tetrahedral CAE     | High (simpler)         |
+| **TetGen**  | Yes     | Yes (~20k)            | High (focused)    | None             | Tetrahedral CAE     | Very High (light)      |
+| **MMG3D**   | Yes     | Yes (~50k)            | High (adaptation) | Minimal          | Mesh refinement     | High (light, CAE)      |
+
+
+CAE solver
+
+
+| **Project**   | **C++** | **Lightweight (Lines)** | **Learning Ease** | **Dependencies** | **Fit with `next_gsp`** |
+|:--------------|:--------|:------------------------|:------------------|:-----------------|:------------------------|
+| **Code_Aster**| Partial | No (~2M)               | Moderate          | Heavy (HDF5, PETSc)   | Low (complexity)       |
+| **Elmer**     | Yes     | Moderate (~500k)       | High (GUI)        | Moderate (MPI, Qt)    | Medium (size)         |
+| **FreeFEM**   | Yes     | Yes (~200k)            | High (scripting)  | Light (FFTW)          | High (C++, light)     |
+| **CalculiX**  | No (C)  | Yes (~150k)            | High (simple)     | Light (SpooLES)       | Medium (not C++)      |
+| **OOFEM**     | Yes     | Yes (~100k)            | High (modular)    | Light (LAPACK)        | High (C++, light)     |
+| **OpenFOAM**  | Yes     | No (~1M)               | Moderate          | Moderate (MPI, Boost) | Medium (complexity)   |
+
+CAE all in one
+
+<div style="text-align: left; margin-left: 0;">
+
+| Project           | C++        | Lightweight (Lines) | Learning Ease     | Dependencies            | CAE Focus                           | Meshing Features                          | Solving Features                        |
+|:------------------|:-----------|:--------------------|:------------------|:------------------------|:------------------------------------|:------------------------------------------|:----------------------------------------|
+| Salome-Meca       | Partial    | No (~2M)            | Moderate         | Heavy (HDF5, PETSc, Qt)| Broad CAE (structural, thermal, etc.) | Advanced meshing via Salome              | Multi-physics FEM (Code_Aster)           |
+| CalculiX          | No (C)     | Yes (~150k)         | High (simple)    | Light (SpooLES)        | Structural mechanics (FEM)          | Basic meshing via CGX                      | Linear/nonlinear statics, dynamics       |
+| FEniCS/FEniCSx   | Yes        | Yes (~250k)         | High (Python)    | Moderate (PETSc, MPI)  | PDE solving (FEM)                   | None (external, e.g., Gmsh)                | High-order elements, variational forms   |
+| FreeFEM           | Yes        | Yes (~200k)         | High (scripting) | Light (FFTW)           | PDE solving (FEM)                   | Built-in BAMG (2D/3D), Gmsh/Tetgen support | P1/P2 Lagrange elements, variational forms |
+| JuliaFEM          | No (Julia) | Yes (~100k)         | High (Julia)     | Light (LAPACK, Gmsh)   | Structural/thermal FEM              | Basic internal, Gmsh-compatible            | Structural/thermal PDEs, lightweight solver |
+| MoFEM             | Yes        | Yes (~150k)         | Moderate         | Moderate (PETSc, SLEPc)| Multi-physics FEM                   | External (Gmsh, Cubit)                     | Multi-physics PDEs, modular solver       |
+
+</div>
+
+CAD
+
+| **Project**   | **CAD Features**         | **Mesh Features**         | **Language** | **Size (Lines)** | **Commercial Fit** | **Fit with `next_gsp`** |
+|:--------------|:-------------------------|:--------------------------|:-------------|:-----------------|:-------------------|:------------------------|
+| **FreeCAD**   | Parametric, B-Rep       | CAD (STL), CAE (tets)    | C++/Python  | ~1M             | High               | High (full pipeline)   |
+| **OCCT**      | B-Rep, geometry kernel  | CAD (triangles)          | C++         | ~1M             | Moderate (no CAE)  | High (CAD base)        |
+| **Gmsh**      | Basic CAD, imports      | CAE (tets, hexes)        | C++         | ~500k           | High               | High (CAE mesh)        |
+| **Salome**    | B-Rep, advanced CAD     | CAE (tets, hexes)        | C++/Python  | ~2M             | High               | High (robust)          |
+| **CadQuery**  | Parametric, B-Rep       | CAD (STL)                | Python/C++  | ~50k + OCC      | Moderate (no CAE)  | Moderate (Python)      |
+
+| **Project**   | **CAD Features**   | **Mesh Features** | **C++** | **Size (Lines)** | **Learning Ease** | **Dependencies** | **Fit with `next_gsp`** |
+|:--------------|:-------------------|:------------------|:--------|:-----------------|:------------------|:-----------------|:------------------------|
+| **CadQuery**  | Parametric, B-Rep | CAD (STL)         | Partial | ~50k (Python)   | Moderate (Python) | OCC             | Moderate (scripting)   |
+| **TetGen**    | None (import)     | CAE (tets)        | Yes     | ~20k            | High (focused)    | None            | High (mesh focus)      |
+| **OpenSCAD**  | CSG              | CAD (STL)         | Yes     | ~200k           | Good (CSG)        | Qt, CGAL        | Moderate (CSG)         |
+| **Mini OCC**  | B-Rep            | CAD (triangles)   | Yes     | ~100k (subset)  | High (B-Rep)      | OCC subset      | High (CAD base)        |
