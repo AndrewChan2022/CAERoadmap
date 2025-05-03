@@ -354,3 +354,86 @@ Would you like me to generate a curated starter GitHub repo with:
 
 Let me know and I’ll generate that structure for you!
 
+
+# CAE project
+
+Got it — you're asking for **high-quality CAE (Computer-Aided Engineering) GitHub projects**, **not limited to OOFEM**, that demonstrate practical use, readable source code, or academic/industrial relevance.
+
+Here's a curated list of **CAE-related GitHub projects**, categorized by domain and approach (FEM, CFD, multiphysics, etc.), including both **educational** and **production-level** examples.
+
+---
+
+## 🏗️ Full CAE Frameworks (Open Source)
+
+| Project                                                                | Domain                     | Language     | Highlights                                                                |
+| ---------------------------------------------------------------------- | -------------------------- | ------------ | ------------------------------------------------------------------------- |
+| 🔹 [FEniCS Project](https://github.com/FEniCS)                         | FEM / Multiphysics         | C++ + Python | Symbolic problem definition, excellent for prototyping PDE solvers        |
+| 🔹 [deal.II](https://github.com/dealii/dealii)                         | FEM / Structural & Thermal | C++          | Powerful general-purpose FEM toolkit, very readable and modular           |
+| 🔹 [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos) | Multiphysics               | C++          | Developed by CIMNE, scalable, industrial-grade                            |
+| 🔹 [Elmer FEM](https://github.com/ElmerCSC/elmerfem)                   | Multiphysics               | C++/Fortran  | Used in academia and industry, large number of modules                    |
+| 🔹 [OpenFOAM](https://develop.openfoam.com)                            | CFD / Heat Transfer        | C++          | Gold standard for CFD, but also includes solid mechanics modules          |
+| 🔹 [CalculiX](https://github.com/calculix/CalculiX)                    | Solid Mechanics / FEM      | C            | ABAQUS input compatible, widely used in structural analysis               |
+| 🔹 [SU2](https://github.com/su2code/SU2)                               | CFD / Aerodynamics         | C++/Python   | NASA-origin, aerodynamic shape optimization, PDE-constrained optimization |
+
+---
+
+## 📘 Educational & Research Projects
+
+| Project                                                        | Domain        | Language | Description                                             |
+| -------------------------------------------------------------- | ------------- | -------- | ------------------------------------------------------- |
+| 📘 [fem-on-cpu](https://github.com/ganfra/fem-on-cpu)          | FEM           | C++      | Simple, modern, readable FEM solver from scratch        |
+| 📘 [numfem-cpp](https://github.com/PetterS/numfem-cpp)         | FEM           | C++      | Educational FEM for heat and elasticity problems        |
+| 📘 [FEMTutorials](https://github.com/taylorgrant/FEMTutorials) | FEM           | Python   | Lightweight FEM examples in 1D/2D/3D                    |
+| 📘 [fipy](https://github.com/usnistgov/fipy)                   | Finite Volume | Python   | PDEs using finite volume for diffusion, advection, etc. |
+
+---
+
+## ⚙️ Mesh Processing & IO Pipelines
+
+| Project                                                 | Focus                     | Description                                                |
+| ------------------------------------------------------- | ------------------------- | ---------------------------------------------------------- |
+| 🔧 [Gmsh](https://gitlab.onelab.info/gmsh/gmsh)         | Mesh generation           | Popular mesh generator with GUI + scripting                |
+| 🔧 [Meshio](https://github.com/nschloe/meshio)          | Mesh conversion           | Converts between formats: VTK, Gmsh, Abaqus, etc.          |
+| 🔧 [PyMesh](https://github.com/PyMesh/PyMesh)           | Geometry kernel / meshing | Python geometry toolkit with C++ backend                   |
+| 🔧 [Netgen/NGSolve](https://github.com/NGSolve/ngsolve) | Meshing + FEM             | Excellent GUI-based meshing and FEM scripting (Python API) |
+
+---
+
+## 🧠 Recommended by Domain (If You're Not Sure Where to Start)
+
+### 🔸 Structural Mechanics & Linear Elasticity
+
+* [deal.II](https://github.com/dealii/dealii)
+* [fem-on-cpu](https://github.com/ganfra/fem-on-cpu)
+* [CalculiX](https://github.com/calculix/CalculiX)
+
+### 🔸 CFD & Heat Transfer
+
+* [OpenFOAM](https://develop.openfoam.com)
+* [SU2](https://github.com/su2code/SU2)
+* [fipy](https://github.com/usnistgov/fipy)
+
+### 🔸 Multiphysics (Thermal + Structural + More)
+
+* [FEniCS](https://github.com/FEniCS)
+* [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos)
+* [Elmer FEM](https://github.com/ElmerCSC/elmerfem)
+
+---
+
+## ✅ What Makes These Projects Good?
+
+* 💡 Well-documented and active
+* 📐 Cover real engineering problems (not just toy problems)
+* 🧠 Strong math foundations
+* 🔧 Flexible for extensions (custom elements, materials, solvers)
+
+---
+
+If you're aiming for a **modern CAE pipeline**, I'd recommend:
+
+* Use **FreeCAD** or **Gmsh** for modeling/meshing
+* Simulate with **deal.II** or **FEniCS**
+* Visualize with **ParaView**
+
+Would you like me to recommend a project path that includes one of these (e.g., `deal.II + Gmsh + ParaView`) and replaces or complements OOFEM?

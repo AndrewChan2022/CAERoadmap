@@ -4,6 +4,11 @@ Welcome to your self-paced learning journey for mastering **geometry kernel deve
 
 ---
 
+## roadmap
+
+
+[learning roadmap](./roadmap.md)
+
 ## 📁 Repository Structure
 
 ```
